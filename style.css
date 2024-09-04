@@ -136,9 +136,9 @@ a:hover{
   transition-duration: 1.2s;
   transition-timing-function: ease-in-out;
 }
-@media screen and (max-height: 113.5vw) and (max-width: 766px){
+@media screen and (max-height: 138vw) and (max-width: 766px){
   #click-intro:checked ~ * .introduce {
-    height: 120vw;
+    height: 138vw;
   }
 }
 @media screen and (min-height: 80vw) and (min-width: 767px){

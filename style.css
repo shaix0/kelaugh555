@@ -139,6 +139,14 @@ a:hover{
   transition-duration: 1.2s;
   transition-timing-function: ease-in-out;
 }
+#click-intro:checked ~ .mid-text {
+  opacity: 0;
+  transition-duration: 1s;
+}
+#click-intro:not(:checked) ~ .mid-text {
+  opacity: 1;
+  transition-duration: 1s;
+}
 @media screen and (max-height: 138vw) and (max-width: 766px){
   #click-intro:checked ~ * .introduce {
     height: 138vw;

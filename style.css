@@ -168,7 +168,7 @@ a:hover{
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #af9e8c;
+  background: linear-gradient(to top,rgb(136 120 99 / 67%) 0,rgb(147 103 79 / 16%) 100%);
 }
 .about{
   text-align: center;

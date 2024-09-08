@@ -165,10 +165,16 @@ a:hover{
 
 /**/
 .introduce-w{
-  pointer-events: all;
   width: 100%;
   height: auto;
   overflow: hidden;
+}
+.introduce-w::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 }
 .introduce{
   display: flex;

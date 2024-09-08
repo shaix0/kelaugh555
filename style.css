@@ -168,12 +168,13 @@ a:hover{
   width: 100%;
   height: auto;
   overflow: hidden;
+  pointer-events: auto;
 }
 .introduce-w::before {
   content: '';
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 100%;
   pointer-events: none;
 }
 .introduce{

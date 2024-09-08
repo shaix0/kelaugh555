@@ -165,7 +165,7 @@ a:hover{
 
 /**/
 .introduce-w{
-  pointer-events: visible;
+  pointer-events: all;
   width: 100%;
   height: auto;
   overflow: hidden;

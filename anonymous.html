@@ -1,9 +1,14 @@
 <form id="google-form" class="ano-form">
   <span class="contact100-form-title"> 匿名 </span>
   
-  <label class="content" for="first-name">什麼都可以說！</label>
-  <div class="ano-form" data-validate="內容不可為空！">
-    <input id="content-text" class="input" type="text" placeholder="">
+  <label class="content" for="first-name"></label>
+  <div class="ano-form">
+    <input id="content-text"
+           class="input" type="text"
+           placeholder="什麼都可以說！"
+           oninvalid="setCustomValidity('內容不可為空！');"
+           oninput="setCustomValidity('');"
+           required>
     <span class="focus-input"></span>
   </div>
   <div class="submit">

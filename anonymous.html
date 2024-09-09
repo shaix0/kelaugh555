@@ -1,0 +1,38 @@
+<form id="google-form" class="ano-form">
+  <span class="contact100-form-title"> 匿名 </span>
+  
+  <label class="content" for="first-name">什麼都可以說！</label>
+  <div class="ano-form" data-validate="內容不可為空！">
+    <input id="content-text" class="input" type="text" placeholder="">
+    <span class="focus-input"></span>
+  </div>
+  <div class="submit">
+    <button class="submit"> 送出 </button>
+  </div>
+</form>
+
+<script>
+    $('#google-form').submit(function (e) {
+      //在這裡我們要先擋掉form默認事件
+      e.preventDefault();
+
+      if ($('#content-text').val()) {//需要先確認必填欄位是否填寫
+        $.ajax({
+          // url為Google Form按下submit的aciotn
+          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
+          crossDomain: true,//解決跨網域CORS的問題
+          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+            "entry.485373546": $('#content-text').val(),
+          },
+          type: "POST", //因為是要進行insert的動作，故事用POST
+          dataType: "JSONP",
+          complete: function () {
+            //完成後把這些欄位清空
+            $('#content-text').val('')
+            //最後跳轉到感謝的頁面
+            window.location.replace("thank.html");
+          }
+        });
+      }
+    });
+  </script>

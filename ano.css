@@ -1,1 +1,30 @@
+.ano-form{
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.contact100-form-title{
+  font-size: 2.5vw;
+}
+.input{
+  background: #c7b5a1b0;
+  border: 1px solid #57371996;
+}
+.submit{
+  background: #d6cebd6b;
+  padding: 2 8 2 8;
+  border-radius: 2vw;
+  border-color: #ffffff00;
+  font-size: 1.5vw;
+}
+.submit:hover{
+  background: #d6cebda8;
+}
 
+/*
+
+參
+https://www.1keydata.com/css-tutorial/tw/border.php
+
+*/

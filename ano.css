@@ -23,6 +23,7 @@ body{
   border: 1px solid #57371996;
   padding: 2 8 2 8;
   border-radius: 6px;
+  resize: none;
 }
 .submit{
   background: #d6cebd6b;

@@ -32,6 +32,7 @@
       e.preventDefault();
 
       if ($('#content-text').val()) {//需要先確認必填欄位是否填寫
+        $.alert("Hello!");
         $.ajax({
           // url為Google Form按下submit的aciotn
           url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
@@ -48,7 +49,6 @@
             window.location.replace("index.html");
           }
         });
-        $.alert("Hello!");
       }
     });
   </script>

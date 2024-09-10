@@ -42,10 +42,10 @@
           type: "POST", //因為是要進行insert的動作，故事用POST
           dataType: "JSONP",
           complete: function () {
+            $.alert("Hello! <strong>I'm an alert!</strong>);
             //完成後把這些欄位清空
             $('#content-text').val('')
             //最後跳轉到感謝的頁面
-            await delay(5);
             window.location.replace("index.html");
           }
         });

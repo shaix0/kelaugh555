@@ -24,6 +24,8 @@ body{
   padding: 2 8 2 8;
   border-radius: 6px;
   resize: none;
+  width: 60vw;
+  height: 20vh;
 }
 .submit{
   background: #d6cebd6b;

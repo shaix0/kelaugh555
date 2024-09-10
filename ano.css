@@ -10,6 +10,8 @@
 .input{
   background: #c7b5a1b0;
   border: 1px solid #57371996;
+  padding: 2 8 2 8;
+  border-radius: 6px;
 }
 .submit{
   background: #d6cebd6b;

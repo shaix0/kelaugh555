@@ -30,6 +30,8 @@ body{
   width: 60vw;
   height: 20vh;
   outline: none;
+  text-align: center;
+  align-content: center;
 }
 .input:focus{
   border: 1px solid #573719d4;

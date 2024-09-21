@@ -105,10 +105,10 @@ a:hover{
   align-items: center;
 }
 .to-intro:hover{
+  .sub-text{
+    transform: translateX(.35vw);
+  }
   text-shadow: #00000090 0.1em 0.1em 0.1em;
-}
-.to-intro:hover .sub-text{
-  transform: translateX(.35vw);
 }
 .sub-text span{
   position: relative;

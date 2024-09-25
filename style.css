@@ -9,7 +9,9 @@ body{
 }
 
 .loading{
-  
+  text-align: center;
+  font-size: 4vw;
+  color: white;
 }
 
 .background{

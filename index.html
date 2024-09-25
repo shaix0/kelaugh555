@@ -6,13 +6,19 @@
   <title>kelaugh555_home</title>
 </head>
 <body>
+  
   <input type="checkbox" id="click-menu" />
   <input type="checkbox" id="click-intro" />
+  
   <header>
     <div class="header">
       <label for="click-menu" class="menu"> MENU </label>
     </div>
   </header>
+
+  <div class="loading">
+    <p> LOADING... </p>
+  </div>
   <div class="background"></div>
   <div class="mid-text">
     <p class="wel-text">
@@ -126,4 +132,11 @@
       </div>
     </div>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load',function(){
+        $(".loading").hide();
+    });
+  </script>
 </body>

@@ -17,7 +17,7 @@ body{
   align-content: center;
   font-size: 2vw;
   background: linear-gradient(to top,rgb(173 151 122) 0,rgb(155 105 78) 100%);
-  transition-duration: 1.2s;
+  transition: 1s;
 }
 .loading p{
   color: white;

@@ -60,7 +60,7 @@ a:hover{
 
 /**/
 .mode{
-  poition: abaoslute;
+  position: absolute;
   z-index: 2;
   background-image: url(../kelaugh555/img/light.png);
 

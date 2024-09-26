@@ -82,7 +82,10 @@ a:hover{
 }
 .dark{
   background-image: url(../kelaugh555/img/sleep-d.webp);
-  
+
+  .background{
+    backdrop-filter: blur(3.5px);
+  }
   .introduce{
     background: linear-gradient(to top,rgb(52 47 40 / 67%) 0,rgb(91 83 78 / 16%) 100%);
   }

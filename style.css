@@ -64,9 +64,14 @@ a:hover{
   z-index: 2;
   background-image: url(../kelaugh555/img/light.png);
   background-size: cover;
-  
-  width: 5vw;
-  height: 5vw;
+  width: 30px;
+  height: 30px;
+  transition: 1s;
+  transform: rotate(-60deg);
+}
+.mode:hover{
+  background-image: url(../kelaugh555/img/dark.png);
+  transform: rotate(0deg);
 }
 #click-mode{
   display: none;

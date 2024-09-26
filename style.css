@@ -69,7 +69,7 @@ a:hover{
   transition: 1s;
   transform: rotate(-60deg);
 }
-.mode:hover{
+/.mode:hover{
   background-image: url(../kelaugh555/img/dark.png);
   transform: rotate(0deg);
 }

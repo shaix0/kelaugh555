@@ -36,6 +36,10 @@ body{
     opacity: 0;
   }
 }
+.hide{
+  
+  opacity: 0;
+}
 
 .background{
   position: absolute;

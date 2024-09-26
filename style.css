@@ -8,6 +8,7 @@ body{
   background-size: cover;
 }
 
+/**/
 .loading{
   position: absolute;
   z-index: 5;
@@ -65,6 +66,9 @@ a:hover{
 
   width: 5vw;
   height: 5vw;
+}
+#click-mode{
+  display: none;
 }
 .menu{
   position: fixed;

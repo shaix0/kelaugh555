@@ -77,7 +77,7 @@ a:hover{
   display: none;
 }
 #click-mode:checked ~ * .mode{ 
-  background-image: url(../kelaugh555/img/dark.png);
+  background-image: url(../kelaugh555/img/dark1.png);
   transform: rotate(0deg);
 }
 .dark{

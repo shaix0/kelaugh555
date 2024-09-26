@@ -58,6 +58,14 @@ a:hover{
 }
 
 /**/
+.mode{
+  poition: abaoslute;
+  z-index: 2;
+  background-image: url(../kelaugh555/img/light.png);
+
+  width: 5vw;
+  height: 5vw;
+}
 .menu{
   position: fixed;
   z-index: 2;

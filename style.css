@@ -60,7 +60,7 @@ a:hover{
   display: none;
 }
 
-/* 夜間模式 */
+/* 深色模式 */
 .mode{
   position: absolute;
   z-index: 2;

@@ -6,6 +6,7 @@ body{
   background-image: url(../kelaugh555/img/sleep.jpg);
   background-position: center;
   background-size: cover;
+  transition: 1s;
 }
 
 /**/

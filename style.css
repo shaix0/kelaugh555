@@ -66,8 +66,9 @@ a:hover{
   z-index: 2;
   background-image: url(../kelaugh555/img/light.png);
   background-size: cover;
-  width: 30px;
-  height: 30px;
+  margin: .5vw;
+  width: 35px;
+  height: 35px;
   transform: rotate(-60deg);
 }
 /.mode:hover{

@@ -58,7 +58,7 @@ a:hover{
   display: none;
 }
 
-/**/
+/* 夜間模式 */
 .mode{
   position: absolute;
   z-index: 2;
@@ -79,6 +79,17 @@ a:hover{
 #click-mode:checked ~ * .mode{ 
   background-image: url(../kelaugh555/img/dark.png);
   transform: rotate(0deg);
+}
+.dark{
+  background-image: url(../kelaugh555/img/sleep-d.webp);
+  
+  .introduce{
+    background: linear-gradient(to top,rgb(52 47 40 / 67%) 0,rgb(91 83 78 / 16%) 100%);
+  }
+  .member,.about-sub{
+    color: white;
+    background-color: #bfbbb7b8;
+  }
 }
 
 .menu{

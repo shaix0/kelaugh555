@@ -18,6 +18,7 @@ body{
   font-size: 2vw;
   background: linear-gradient(to top,rgb(173 151 122) 0,rgb(155 105 78) 100%);
   transition: 1s;
+  pointer-events: none;
 }
 .loading p{
   color: white;

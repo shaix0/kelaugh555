@@ -76,6 +76,11 @@ a:hover{
 #click-mode{
   display: none;
 }
+#click-mode:checked ~ * .mode{ 
+  background-image: url(../kelaugh555/img/dark.png);
+  transform: rotate(0deg);
+}
+
 .menu{
   position: fixed;
   z-index: 2;

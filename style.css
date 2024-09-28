@@ -88,8 +88,14 @@ a:hover{
   .background{
     backdrop-filter: blur(3.5px);
   }
+  .menu{
+    background-color:#e2e2e2bd;
+  }
+  .menu:hover{
+    background-color:#e2e2e2e6;
+  }
   .b-item{
-    background-color: #b1b1b17a;
+    background-color: #c1c1c187;
   }
   .b-item:hover{
     background-color: #7f7f7f8f;

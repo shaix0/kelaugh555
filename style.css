@@ -64,7 +64,7 @@ a:hover{
 .mode{
   position: absolute;
   z-index: 2;
-  background-image: url(../kelaugh555/img/light.png);
+  background-image: url(../kelaugh555/img/light1.png);
   background-size: cover;
   margin: .5vw;
   width: 35px;
@@ -72,7 +72,7 @@ a:hover{
   transform: rotate(-60deg);
 }
 /.mode:hover{
-  background-image: url(../kelaugh555/img/dark.png);
+  background-image: url(../kelaugh555/img/dark1.png);
   transform: rotate(0deg);
 }
 #click-mode{

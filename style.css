@@ -1,5 +1,6 @@
 *{
   transition: 1s;
+  cursor: url(../kelaugh555/img/cat.png), auto;
 }
 body{
   user-select: none;
@@ -9,7 +10,6 @@ body{
   background-image: url(../kelaugh555/img/sleep.jpg);
   background-position: center;
   background-size: cover;
-  cursor: url(../kelaugh555/img/cat.png), auto;
 }
 
 /**/

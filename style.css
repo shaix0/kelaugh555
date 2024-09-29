@@ -71,6 +71,7 @@ a:hover{
   width: 35px;
   height: 35px;
   transform: rotate(-60deg);
+  transition: 1s;
 }
 /.mode:hover{
   background-image: url(../kelaugh555/img/dark1.png);

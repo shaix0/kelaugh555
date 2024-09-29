@@ -9,7 +9,6 @@ body{
   background-image: url(../kelaugh555/img/sleep.jpg);
   background-position: center;
   background-size: cover;
-  cursor: url(../kelaugh555/media/cat.cur);
 }
 
 /**/
@@ -50,6 +49,7 @@ body{
   width: 100%;
   height: 100%;
   backdrop-filter: blur(2.5px);
+  cursor: url(../kelaugh555/media/cat.cur);
 }
 a{
   text-decoration: none;

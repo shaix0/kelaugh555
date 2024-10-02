@@ -41,6 +41,8 @@
       </p>
     </label>
   </div>
+
+  <div id="copy-alert" class="hide">已複製連結</div>
   <div class="bottom-list-w">
     <ul class="b-list">
       <li class="b-item">
@@ -153,9 +155,8 @@
       var fixedText = "https://shaix0.github.io/kelaugh555";
       // 使用 Clipboard API 來複製
       navigator.clipboard.writeText(fixedText).then(function() {
-        $("#copyMessage").text("已複製連結");
+        $("#copy-alert").toggleClass("hide");
       }).catch(function(error) {
-        $("#copyMessage").text("複製失敗，請再試一次！");
         console.error("複製錯誤: ", error);
       });
     });

@@ -149,5 +149,15 @@
     $("#click-mode").on('click', function() {
       $("body").toggleClass("dark");
     });
+    $("#share").on('click', function() {
+      var fixedText = "https://shaix0.github.io/kelaugh555";
+      // 使用 Clipboard API 來複製
+      navigator.clipboard.writeText(fixedText).then(function() {
+        $("#copyMessage").text("已複製連結");
+      }).catch(function(error) {
+        $("#copyMessage").text("複製失敗，請再試一次！");
+        console.error("複製錯誤: ", error);
+      });
+    });
   </script>
 </body>

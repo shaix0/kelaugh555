@@ -153,12 +153,16 @@
     });
     $("#share").on('click', function() {
       var fixedText = "https://shaix0.github.io/kelaugh555";
-      // 使用 Clipboard API 來複製
+
       navigator.clipboard.writeText(fixedText).then(function() {
         $("#copy-alert").toggleClass("hide");
       }).catch(function(error) {
         console.error("複製錯誤: ", error);
       });
+
+      setTimeout(function() {
+        $("#copy-alert").toggleClass("hide");
+      }, 2000);
     });
   </script>
 </body>

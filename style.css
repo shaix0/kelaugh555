@@ -43,6 +43,7 @@ body{
 }
 .hide{
   opacity: 0;
+  transition: .65s;
 }
 
 .background{
@@ -174,6 +175,20 @@ a:hover{
   color: white;
   margin: 0;
   text-align: right;
+}
+#copy-alert{
+  position: absolute;
+  z-index: 2;
+  font-size: 13;
+  text-align: center;
+  width: 70px;
+  padding: 5;
+  border-radius: 6px;
+  color: white;
+  background: #0000005e;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .wel-text{

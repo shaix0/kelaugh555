@@ -143,30 +143,36 @@ a:hover{
   position: fixed;
   z-index: 2;
   right:0;
-  top: 27;
+  top: 42.67;
   overflow: hidden;
 }
 .b-list{
+  height: calc(100vh - 42.67px);
   position: relative;
   right: -100%;
+  margin: 0;
   padding: 0;
   border-radius: 3vw 0 0 3vw;
   overflow: hidden;
 }
 .b-item{
   list-style: none;
-  padding: 10 0 10 0;
-  background-color: #0000005e;
+  padding: 10 20 10 0;
+  /background-color: #0000005e;
   width: 150px;
   position: relative;
 }
 .b-item:hover{
   background-color: #00000094;
 }
+.b-item:last-child{
+  position: absolute;
+  top: calc(100% - 42.67px);
+}
 .list-text{
   color: white;
   margin: 0;
-  text-align: center;
+  text-align: right;
 }
 
 .wel-text{

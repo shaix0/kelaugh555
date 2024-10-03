@@ -49,6 +49,85 @@ body{
   background: #d6cebda8;
 }
 
+.menu{
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  user-select: none;
+  padding: 10 0 10 0;
+  border-radius: 0 0 0 15px;
+  width: 130px;
+  background-color:#e2e2e287;
+  text-align: center;
+  font-size: 20;
+}
+.menu:hover{
+  background-color:#e2e2e2b0;
+}
+#click-menu{
+  display: none;
+}
+#click-menu:checked ~ * .b-list {
+  transform: translateX(-100%);
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+#click-menu:not(:checked) ~ * .b-list {
+  transform: translateX(100%);
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+.bottom-list-w{
+  position: fixed;
+  z-index: 2;
+  right:0;
+  top: 42.67;
+  overflow: hidden;
+}
+.b-list{
+  height: calc(100vh - 42.67px);
+  position: relative;
+  right: -100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 3vw 0 0 3vw;
+  overflow: hidden;
+  background-color: #0000005e;
+}
+.b-item{
+  list-style: none;
+  padding: 10 20 10 0;
+  /background-color: #0000005e;
+  width: 150px;
+  position: relative;
+}
+.b-item:hover{
+  background-color: #00000094;
+}
+.b-item:last-child{
+  position: absolute;
+  top: calc(100% - 42.67px);
+}
+.list-text{
+  color: white;
+  margin: 0;
+  text-align: right;
+}
+#copy-alert{
+  position: absolute;
+  z-index: 2;
+  font-size: 13;
+  text-align: center;
+  width: 70px;
+  padding: 5;
+  border-radius: 6px;
+  color: white;
+  background: #0000005e;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 /*
 
 參

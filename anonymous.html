@@ -53,28 +53,46 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-    $('#google-form').submit(function (e) {
-      //擋掉form默認事件，為了先檢查
-      e.preventDefault();
+  $(window).on('load', function(){
+    $(".loading").addClass("hide");
+  });
+  
+  $("#share").on('click', function() {
+    var fixedText = "https://shaix0.github.io/kelaugh555/anonymous.html";
 
-      if ($('#content-text').val()) {//檢查必填欄位是否為空
-        $.ajax({
-          //<form action=" url在這 ">
-          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
-          crossDomain: true,//解決跨網域CORS的問題
-          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
-            "entry.485373546": $('#content-text').val()
-          },
-          type: "POST",
-          dataType: "JSONP",
-          complete: function () {
-            alert(" 提交成功！感謝留言✨ ");
-            //完成後把這些欄位清空
-            $('#content-text').val('')
-            //最後跳轉到主頁面
-            window.location.replace("index.html");
-          }
-        });
-      }
+    navigator.clipboard.writeText(fixedText).then(function() {
+      $("#copy-alert").toggleClass("hide");
+    }).catch(function(error) {
+      console.error("複製錯誤: ", error);
     });
-  </script>
+
+    setTimeout(function() {
+      $("#copy-alert").toggleClass("hide");
+    }, 1500);
+  });
+  
+  $('#google-form').submit(function (e) {
+    //擋掉form默認事件，為了先檢查
+    e.preventDefault();
+
+    if ($('#content-text').val()) {//檢查必填欄位是否為空
+      $.ajax({
+        //<form action=" url在這 ">
+        url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
+        crossDomain: true,//解決跨網域CORS的問題
+        data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+          "entry.485373546": $('#content-text').val()
+        },
+        type: "POST",
+        dataType: "JSONP",
+        complete: function () {
+          alert(" 提交成功！感謝留言✨ ");
+          //完成後把這些欄位清空
+          $('#content-text').val('')
+          //最後跳轉到主頁面
+          window.location.replace("index.html");
+        }
+      });
+    }
+  });
+</script>

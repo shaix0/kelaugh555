@@ -60,10 +60,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-  $(window).on('load', function(){
-    $(".loading").addClass("hide");
-  });
-  
   $("#share").on('click', function() {
     var fixedText = "https://shaix0.github.io/kelaugh555/anonymous.html";
 
@@ -72,7 +68,6 @@
     }).catch(function(error) {
       console.error("複製錯誤: ", error);
     });
-
     setTimeout(function() {
       $("#copy-alert").toggleClass("hide");
     }, 1500);

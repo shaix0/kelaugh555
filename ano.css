@@ -1,6 +1,13 @@
 *{
   cursor: url(../kelaugh555/img/cat.png), auto;
 }
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+
 body{
   user-select: none;
   margin: 0 auto;

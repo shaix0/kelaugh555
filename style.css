@@ -169,7 +169,7 @@ a:hover{
 }
 .b-item:last-child{
   position: absolute;
-  top: calc(100% - 42.67px);
+  bottom: 0%;
 }
 .list-text{
   color: white;

@@ -1,0 +1,24 @@
+<script>
+  $(function() {
+    $.get('https://spreadsheets.google.com/feeds/list/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/1/public/values?alt=json', function(data) {
+      var d = data.feed.entry;
+      var items = [];
+      for (var i in d) {
+        var item = {};
+        item.time = d[i].gsx$time.$t;
+        item.rreply = d[i].gsx$reply.$t;
+        items.push(item);
+      }
+      console.table(items);
+      for (var i in items) {
+        var Card = `
+          <div class="data">
+            <h2>${items[i].time}</h2>
+            <p>${items[i].reply}</p>
+          </div>
+        `;
+        $('.results').append(Card);
+      }
+    });
+  });
+</script>

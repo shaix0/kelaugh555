@@ -1,24 +1,48 @@
-<script>
-  $(function() {
-    $.get('https://spreadsheets.google.com/feeds/list/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/1/public/values?alt=json', function(data) {
-      var d = data.feed.entry;
-      var items = [];
-      for (var i in d) {
-        var item = {};
-        item.time = d[i].gsx$time.$t;
-        item.rreply = d[i].gsx$reply.$t;
-        items.push(item);
-      }
-      console.table(items);
-      for (var i in items) {
-        var Card = `
-          <div class="data">
-            <h2>${items[i].time}</h2>
-            <p>${items[i].reply}</p>
-          </div>
-        `;
-        $('.results').append(Card);
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="icon" href="/kelaugh555/img/55605.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="/kelaugh555/ano.css" type="text/css" />
+  <title>kelaugh555_reply</title>
+</head>
+
+<body>
+  <input type="checkbox" id="click-menu" />
+  <header>
+    <div class="header">
+      <label for="click-menu" class="menu"> MENU </label>
+    </div>
+  </header>
+  
+  <div class="title">
+    <label class="title-text"> 其他人的回覆 </label>
+  </div>
+  <div class="results">
+    
+  </div>
+  
+  <script>
+    $(function() {
+      $.get('https://spreadsheets.google.com/feeds/list/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/1/public/values?alt=json', function(data) {
+        var d = data.feed.entry;
+        var items = [];
+        for (var i in d) {
+          var item = {};
+          item.time = d[i].gsx$time.$t;
+          item.rreply = d[i].gsx$reply.$t;
+          items.push(item);
+        }
+        console.table(items);
+        for (var i in items) {
+          var Card = `
+            <div class="data">
+              <h2>${items[i].time}</h2>
+              <p>${items[i].reply}</p>
+            </div>
+          `;
+          $('.results').append(Card);
+        }
+      });
     });
-  });
-</script>
+  </script>
+</body>

@@ -22,27 +22,26 @@
   </div>
   
   <script>
-    $(function() {
-      $.get('https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyCv10DOi5pz5xRFzYyTV0QXoxCFRzaHbfg', function(data) {
-        var d = data.feed.entry;
-        var items = [];
-        for (var i in d) {
-          var item = {};
-          item.time = d[i].gsx$time.$t;
-          item.rreply = d[i].gsx$reply.$t;
-          items.push(item);
-        }
-        console.table(items);
-        for (var i in items) {
-          var Card = `
-            <div class="data">
-              <h2>${items[i].time}</h2>
-              <p>${items[i].reply}</p>
-            </div>
-          `;
-          $('.results').append(Card);
-        }
-      });
-    });
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/a?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+      
+      fetch(uri)
+        .then(res => res.json())
+        .then(res => {
+          const data = res.values;
+          console.log(data);
+      
+          // 刪除第一個陣列
+          data.shift();
+      
+          Array.prototype.forEach.call(data, d => {
+            let Card = `
+              <div class="card">
+                <p class="time"> ${d[0]} </p>
+                <p class="content"> ${d[1]} </p>
+              </div>`;
+            
+            document.querySelector('.results').insertAdjacentHTML('beforeend', Card);
+          })
+        })
   </script>
 </body>

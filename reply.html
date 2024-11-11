@@ -23,7 +23,7 @@
   
   <script>
     $(function() {
-      $.get('https://spreadsheets.google.com/feeds/list/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/reply1/public/values?alt=json', function(data) {
+      $.get('https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyCv10DOi5pz5xRFzYyTV0QXoxCFRzaHbfg', function(data) {
         var d = data.feed.entry;
         var items = [];
         for (var i in d) {

@@ -76,22 +76,8 @@
     }, 1500);
   });
 
-  $(".submit").on('click', function() {
-    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
-    var data;
-    fetch(uri)
-      .then(res => res.json())
-      .then(res => {
-        data = res.values;
-      })
-    
-    if (data.length>=limit+1) {
-      alert(" 回覆已達上限 ");
-      $('#content-text').val('');
-      window.location.replace("index.html");
-    }
-    else{
-      $('#google-form').submit(function (e) {
+  function submit(){
+    $('#google-form').submit(function (e) {
         //擋掉form默認事件，為了先檢查
         e.preventDefault();
     
@@ -115,7 +101,24 @@
           });
         }
       });
-    }
+  }
+
+  $(".submit").on('click', function() {
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    fetch(uri)
+      .then(res => res.json())
+      .then(res => {
+        const data = res.values;
+      
+        if (data.length>=limit+1) {
+          alert(" 回覆已達上限 ");
+          $('#content-text').val('');
+          window.location.replace("index.html");
+        }
+        else{
+          submit();
+        }
+      })
   });
   
 </script>

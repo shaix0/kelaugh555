@@ -98,7 +98,7 @@
       .then(res => res.json())
       .then(res => {
         const data = res.values;
-
+console.log(data);
         if (data.length >= limit+1 && data[limit]!=$('#content-text').val()) {
             alert("回覆已達上限");
             $('#content-text').val('');

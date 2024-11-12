@@ -60,7 +60,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-  
+  let isSubmitting = false;
   var limit=4;
   
   $("#share").on('click', function() {
@@ -103,11 +103,42 @@
       //});
   }
 
+  function checkLimitAndSubmit() {
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    
+    fetch(uri)
+      .then(res => res.json())
+      .then(res => {
+        const data = res.values;
+
+        if (data.length >= limit) {
+            alert("回覆已達上限");
+            $('#content-text').val('');
+            isSubmitting = false; // 解锁
+            window.location.replace("index.html");
+        } else {
+            submitBtn();
+        }
+      })
+      .catch(error => {
+        console.error("检查上限时出错:", error);
+        isSubmitting = false; // 如果发生错误，也要解锁
+      });
+}
+
   $(".submit").on('click', function(e) {
     //擋掉form默認事件，為了先檢查
     e.preventDefault();
+
+    if (isSubmitting) {
+        alert("请稍候，正在提交...");
+        return; // 如果已经在提交状态，则不允许重复提交
+    }
+
+    isSubmitting = true; // 加锁
+    checkLimitAndSubmit(); // 调用检查和提交函数
     
-    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    /*const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
     fetch(uri)
       .then(res => res.json())
       .then(res => {
@@ -121,7 +152,7 @@
         else{
           submitBtn();
         }
-      })
+      })*/
   });
   
 </script>

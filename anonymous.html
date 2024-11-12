@@ -60,6 +60,14 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
+  const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+  var data;
+  fetch(uri)
+    .then(res => res.json())
+    .then(res => {
+      data = res.values;
+    })
+  
   $("#share").on('click', function() {
     var fixedText = "https://shaix0.github.io/kelaugh555/anonymous.html";
 
@@ -77,6 +85,14 @@
     //擋掉form默認事件，為了先檢查
     e.preventDefault();
 
+    if (data.length>=4) {
+      alert(" 回覆已達上限 ");
+          //完成後把這些欄位清空
+          $('#content-text').val('')
+          //最後跳轉到主頁面
+          window.location.replace("index.html");
+    }
+
     if ($('#content-text').val()) {//檢查必填欄位是否為空
       $.ajax({
         //<form action=" url在這 ">
@@ -87,7 +103,7 @@
         },
         type: "POST",
         dataType: "JSONP",
-        complete: function () {
+        success: function () {
           alert(" 提交成功！感謝留言✨ ");
           //完成後把這些欄位清空
           $('#content-text').val('')

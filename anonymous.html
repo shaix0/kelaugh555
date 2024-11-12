@@ -101,10 +101,10 @@
           },
           type: "POST",
           dataType: "JSONP",
-          success: function () {
+          complete: function () {
             alert(" 提交成功！感謝留言✨ ");
             //完成後把這些欄位清空
-            $('#content-text').val('')
+            $('#content-text').val('');
             //最後跳轉到主頁面
             window.location.replace("index.html");
           }

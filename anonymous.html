@@ -92,11 +92,22 @@
             type: "POST",
             dataType: "JSONP",
             complete: function () {
+              fetch(uri)
+      .then(res => res.json())
+      .then(res => {
+        const data = res.values;
+
+        if (data.length >= limit+1) {
+            alert("回覆已達上限");
+            $('#content-text').val('');
+            isSubmitting = false; // 解锁
+            window.location.replace("index.html");
+        } else {
               alert(" 提交成功！感謝留言✨ ");
               //完成後把這些欄位清空
               $('#content-text').val('');
               //最後跳轉到主頁面
-              window.location.replace("index.html");
+              window.location.replace("index.html");}
             }
           });
         }

@@ -77,10 +77,6 @@
   });
 
   function submitBtn(){
-    //$('#google-form').submit(function (e) {
-        
-        
-    
         if ($('#content-text').val()) {//檢查必填欄位是否為空
           $.ajax({
             //<form action=" url在這 ">
@@ -93,23 +89,25 @@
             dataType: "JSONP",
             complete: function () {
               const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
-    
               fetch(uri)
-      .then(res => res.json())
-      .then(res => {
-        const data = res.values;
-console.log(data);
-        if (data.length >= limit+1 && data[limit][1]!=$('#content-text').val()) {
-            alert("回覆已達上限");
-            $('#content-text').val('');
-            isSubmitting = false; // 解锁
-            window.location.replace("index.html");
-        } else {
-              alert(" 提交成功！感謝留言✨ ");
-              //完成後把這些欄位清空
-              $('#content-text').val('');
-              //最後跳轉到主頁面
-              window.location.replace("index.html");}});
+                .then(res => res.json())
+                .then(res => {
+                  const data = res.values;
+
+                  if (data.length >= limit+1 && data[limit][1]!=$('#content-text').val()) {
+                    alert("回覆已達上限");
+                    $('#content-text').val('');
+                    isSubmitting = false; // 解锁
+                    window.location.replace("index.html");
+                  }
+                  else {
+                    alert(" 提交成功！感謝留言✨ ");
+                    //完成後把這些欄位清空
+                    $('#content-text').val('');
+                    //最後跳轉到主頁面
+                    window.location.replace("index.html");
+                  }
+                });
             }
           });
         }

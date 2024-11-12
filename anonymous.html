@@ -76,7 +76,7 @@
     }, 1500);
   });
 
-  function submit(){
+  function submitBtn(){
     $('#google-form').submit(function (e) {
         //擋掉form默認事件，為了先檢查
         e.preventDefault();
@@ -116,7 +116,7 @@
           window.location.replace("index.html");
         }
         else{
-          submit();
+          submitBtn();
         }
       })
   });

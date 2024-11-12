@@ -111,7 +111,7 @@
       .then(res => {
         const data = res.values;
 
-        if (data.length >= limit) {
+        if (data.length >= limit+1) {
             alert("回覆已達上限");
             $('#content-text').val('');
             isSubmitting = false; // 解锁

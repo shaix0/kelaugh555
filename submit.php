@@ -1,50 +1,54 @@
 <?php
-// 设置提交限制
-$limit = 4;
-// 数据存储文件路径
-$dataFile = 'data.txt';
-// 锁定文件路径
-$lockFile = 'lockfile.txt';
+$limit = 4; // 提交上限
 
-// 1. 尝试打开文件并加锁
-$lockHandle = fopen($lockFile, 'w+');
-if (!flock($lockHandle, LOCK_EX)) {
-    // 无法获得锁时返回错误
-    echo json_encode(['status' => 'error', 'message' => '服务器繁忙，请稍后再试']);
+// 构建 Google Sheets API 请求 URL
+$url = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+
+// 使用 file_get_contents 发出 GET 请求获取数据
+$response = file_get_contents($url);
+
+// 检查是否成功获取数据
+if ($response === false) {
+    echo json_encode(['status' => 'error', 'message' => '无法访问 Google Sheets 数据']);
     exit();
 }
 
-// 2. 检查当前提交数量
-$dataHandle = fopen($dataFile, 'c+'); // 如果文件不存在则创建
-$dataContents = fread($dataHandle, filesize($dataFile) ?: 1);
-$data = json_decode($dataContents, true) ?: [];
+// 解析 JSON 数据
+$data = json_decode($response, true);
+$values = $data['values'];
+$currentCount = count($values);
 
-// 检查数据数量是否超出限制
-if (count($data) >= $limit) {
-    echo json_encode(['status' => 'error', 'message' => '回复已达上限']);
-    // 释放锁并退出
-    flock($lockHandle, LOCK_UN);
-    fclose($lockHandle);
+// 判断数据数量是否已达上限
+if ($currentCount >= $limit + 1) { // +1 是因为标题行也算在内
+    echo json_encode(['status' => 'error', 'message' => '回覆已達上限']);
     exit();
 }
 
-// 3. 处理提交数据
-$newEntry = [
-    'content' => $_POST['content'],
-    'timestamp' => date('Y-m-d H:i:s')
+// 获取用户提交的数据
+$newContent = $_POST['content'] ?? '';
+
+// 检查用户提交的数据
+if (empty($newContent)) {
+    echo json_encode(['status' => 'error', 'message' => '提交内容不能为空']);
+    exit();
+}
+
+// 准备数据追加到 Google Sheets 的 URL（使用 Google Forms 提交 URL）
+$formUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse';
+$formData = [
+    'entry.485373546' => $newContent, // 表单项 ID 和内容
 ];
-$data[] = $newEntry;
 
-// 写入新数据
-rewind($dataHandle);
-fwrite($dataHandle, json_encode($data));
-ftruncate($dataHandle, ftell($dataHandle));
-fclose($dataHandle);
+// 使用 cURL 发送 POST 请求以提交数据到 Google 表单
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $formUrl);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($formData));
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_exec($curl);
+curl_close($curl);
 
-// 4. 释放锁
-flock($lockHandle, LOCK_UN);
-fclose($lockHandle);
-
-// 返回成功消息
+// 成功提示
 echo json_encode(['status' => 'success', 'message' => '提交成功！感谢留言✨']);
 ?>
+

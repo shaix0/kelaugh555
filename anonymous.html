@@ -89,7 +89,8 @@
       alert(" 回覆已達上限 ");
       $('#content-text').val('');
       window.location.replace("index.html");
-      
+    }
+    else{
       if ($('#content-text').val()) {//檢查必填欄位是否為空
         $.ajax({
           //<form action=" url在這 ">

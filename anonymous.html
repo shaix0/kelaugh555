@@ -99,7 +99,7 @@
       .then(res => {
         const data = res.values;
 console.log(data);
-        if (data.length >= limit+1 && data[limit]!=$('#content-text').val()) {
+        if (data.length >= limit+1 && data[limit][1]!=$('#content-text').val()) {
             alert("回覆已達上限");
             $('#content-text').val('');
             isSubmitting = false; // 解锁

@@ -80,36 +80,39 @@
       $("#copy-alert").toggleClass("hide");
     }, 1500);
   });
-  
-  $('#google-form').submit(function (e) {
-    //擋掉form默認事件，為了先檢查
-    e.preventDefault();
 
+  $(".submit").on('click', function() {
     if (data.length>=limit+1) {
       alert(" 回覆已達上限 ");
       $('#content-text').val('');
       window.location.replace("index.html");
     }
     else{
-      if ($('#content-text').val()) {//檢查必填欄位是否為空
-        $.ajax({
-          //<form action=" url在這 ">
-          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
-          crossDomain: true,//解決跨網域CORS的問題
-          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
-            "entry.485373546": $('#content-text').val()
-          },
-          type: "POST",
-          dataType: "JSONP",
-          complete: function () {
-            alert(" 提交成功！感謝留言✨ ");
-            //完成後把這些欄位清空
-            $('#content-text').val('');
-            //最後跳轉到主頁面
-            window.location.replace("index.html");
-          }
-        });
-      }
+      $('#google-form').submit(function (e) {
+        //擋掉form默認事件，為了先檢查
+        e.preventDefault();
+    
+        if ($('#content-text').val()) {//檢查必填欄位是否為空
+          $.ajax({
+            //<form action=" url在這 ">
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc2GWRZ64CoI4WG_kw7WwzwhZfvHFriy6tZCjoXZEU_Vs-4LA/formResponse",
+            crossDomain: true,//解決跨網域CORS的問題
+            data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+              "entry.485373546": $('#content-text').val()
+            },
+            type: "POST",
+            dataType: "JSONP",
+            complete: function () {
+              alert(" 提交成功！感謝留言✨ ");
+              //完成後把這些欄位清空
+              $('#content-text').val('');
+              //最後跳轉到主頁面
+              window.location.replace("index.html");
+            }
+          });
+        }
+      });
     }
   });
+  
 </script>

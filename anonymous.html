@@ -59,7 +59,7 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<script>
+<script>/*
   let isSubmitting = false;
   var limit=4;
   
@@ -138,7 +138,7 @@
     isSubmitting = true; // 加锁
     checkLimitAndSubmit(); // 调用检查和提交函数
     
-    /*const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
     fetch(uri)
       .then(res => res.json())
       .then(res => {
@@ -152,7 +152,33 @@
         else{
           submitBtn();
         }
-      })*/
+      })
+  });*/
+
+  $(".submit").on('click', function(e) {
+  e.preventDefault(); // 阻止默认提交行为
+  
+  $.ajax({
+    url: 'submit.php', // PHP 文件路径
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      content: $('#content-text').val() // 提交的内容
+    },
+    success: function(response) {
+      if (response.status === 'success') {
+        alert(response.message);
+        $('#content-text').val(''); // 清空输入框
+        window.location.replace("index.html"); // 跳转
+      } else {
+        alert(response.message); // 显示错误消息
+      }
+    },
+    error: function() {
+      alert("提交失败，请稍后重试");
+    }
   });
+});
+
   
 </script>

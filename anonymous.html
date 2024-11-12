@@ -60,13 +60,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-  const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
-  var data, limit=4;
-  fetch(uri)
-    .then(res => res.json())
-    .then(res => {
-      data = res.values;
-    })
+  
+  var limit=4;
   
   $("#share").on('click', function() {
     var fixedText = "https://shaix0.github.io/kelaugh555/anonymous.html";
@@ -82,6 +77,14 @@
   });
 
   $(".submit").on('click', function() {
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    var data;
+    fetch(uri)
+      .then(res => res.json())
+      .then(res => {
+        data = res.values;
+      })
+    
     if (data.length>=limit+1) {
       alert(" 回覆已達上限 ");
       $('#content-text').val('');

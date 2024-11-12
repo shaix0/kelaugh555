@@ -77,9 +77,9 @@
   });
 
   function submitBtn(){
-    $('#google-form').submit(function (e) {
-        //擋掉form默認事件，為了先檢查
-        e.preventDefault();
+    //$('#google-form').submit(function (e) {
+        
+        
     
         if ($('#content-text').val()) {//檢查必填欄位是否為空
           $.ajax({
@@ -100,10 +100,13 @@
             }
           });
         }
-      });
+      //});
   }
 
-  $(".submit").on('click', function() {
+  $(".submit").on('click', function(e) {
+    //擋掉form默認事件，為了先檢查
+    e.preventDefault();
+    
     const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1kOjmFM-spJO94CbbqnCdOdjtCW-dCeG7fmSxUSN0O4k/values/reply1?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
     fetch(uri)
       .then(res => res.json())

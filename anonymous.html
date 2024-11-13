@@ -132,8 +132,8 @@
         }
       })
       .catch(error => {
-        console.error("检查上限时出错:", error);
-        isSubmitting = false; // 如果发生错误，也要解锁
+        console.error("檢查上限時出錯:", error);
+        isSubmitting = false; // 如果發生錯誤，也解鎖
       });
 }
 
@@ -143,11 +143,11 @@
 
     if (isSubmitting) {
         alert("请稍候，正在提交...");
-        return; // 如果已经在提交状态，则不允许重复提交
+        return; // 如果已經在提交狀態，不允許重複提交
     }
 
-    isSubmitting = true; // 加锁
-    checkLimitAndSubmit(); // 调用检查和提交函数
+    isSubmitting = true; // 加鎖
+    checkLimitAndSubmit(); // 調用檢查和提交函數
   });
   
 </script>

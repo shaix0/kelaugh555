@@ -21,7 +21,7 @@
   </div>
   
   <script>
-    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1khoGwV0VoqbN5EHHHdPxqNHtYYhYoMWmvnkZ7sgOZ70/values/0?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
+    const uri = 'https://sheets.googleapis.com/v4/spreadsheets/1khoGwV0VoqbN5EHHHdPxqNHtYYhYoMWmvnkZ7sgOZ70/values/seat?alt=json&key=AIzaSyBgdXDH29MGCtTFncLvBHFnew91ZMo4keA';
       
       fetch(uri)
         .then(res => res.json())
@@ -32,6 +32,7 @@
       
           // 刪除第一個陣列
           data.shift();
+          data.shift();
 
           // 取前 10 筆資料
           const top10Data = data.slice(0, 10);
@@ -39,8 +40,7 @@
           Array.prototype.forEach.call(data, d => {
             let Card = `
               <div class="card">
-                <p class="time"> ${d[0]} </p>
-                <p class="content"> ${d[3]} </p>
+                <p class="content"> ${d[7]} </p>
               </div>`;
             
             document.querySelector('.results').insertAdjacentHTML('beforeend', Card);
